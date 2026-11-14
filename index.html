@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lake Gauge</title>
+<style>
+  :root { --bg: #f4f2ec; --ink: #1d1d1f; --muted: #6b6b70; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #151517; --ink: #ececee; --muted: #9a9aa0; } }
+  body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--ink);
+         font: 15px/1.5 -apple-system, system-ui, sans-serif; }
+  main { max-width: 820px; margin: 0 auto; }
+  img { width: 100%; height: auto; image-rendering: pixelated; border-radius: 6px; }
+  p { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <img src="preview.png" alt="Current Lake Lanier frame">
+  <p id="meta">Generated frame for the e-ink display. The device reads frame.sha256 and frame.bin.</p>
+</main>
+<script>
+  fetch("manifest.json").then(r => r.json()).then(m => {
+    const t = new Date(m.data_time).toLocaleString("en-US", { timeZone: "America/New_York" });
+    document.getElementById("meta").textContent =
+      `${m.elevation_ft.toFixed(2)} ft · reading ${t} · rendered ${new Date(m.rendered_at).toLocaleString()}` +
+      (m.stale ? " · STALE" : "") + (m.warnings.length ? ` · warnings: ${m.warnings.join("; ")}` : "");
+  }).catch(() => {});
+</script>
+</body>
+</html>
