@@ -1,0 +1,12 @@
+{
+ "hash": "d086980e21b61b3df907ea464b29a370da10b20753af0cdd2240530a07b16e12",
+ "offline_hash": "c47fb19624e45074b63b48b872e089c418624a4f3601f95aa01a1d4d7f7c1429",
+ "lowbatt_hash": "c1d0da367fc42e29b7f6b4a7ebd2a802fe10690bdb93eebc415ec7ff76cdd23c",
+ "format": "spectra6-4bpp-800x480-v1",
+ "bytes": 192000,
+ "data_time": "2026-11-28T16:15:00+00:00",
+ "elevation_ft": 1061.72,
+ "stale": false,
+ "rendered_at": "2026-11-28T16:59:26+00:00",
+ "warnings": []
+}
